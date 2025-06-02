@@ -84,7 +84,7 @@ if [ -f "$LOG" ]; then
 fi
 
 check_norminette() {
-	local files=$1
+	local files=("$@")
 
 	echo -n "Checking with norminette... "
 	for f in "${files[@]}"; do
@@ -103,7 +103,7 @@ check_norminette() {
 }
 
 check_functions() {
-	local files=$1
+	local files="$@"
 	echo "int main(void) { return 0; }" >"$MAIN_EMPTY"
 
 	echo -n "Compiling main part... "
